@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PetAdoption.Mobile.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:tookit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:local="clr-namespace:PetAdoption.Mobile"
+    xmlns:pages="clr-namespace:PetAdoption.Mobile.Pages"
+    Shell.FlyoutBehavior="Disabled">
+
+    <Shell.Behaviors>
+        <tookit:StatusBarBehavior StatusBarColor="{StaticResource Primary}"
+                                  StatusBarStyle="LightContent"></tookit:StatusBarBehavior>
+    </Shell.Behaviors>
+     <!--Main Page--> 
+    <ShellContent 
+        ContentTemplate="{DataTemplate local:MainPage}" 
+        Route="MainPage" />
+
+     <!--Onboarding Page--> 
+    <ShellContent 
+        ContentTemplate="{DataTemplate pages:OnboardingPage}"
+        Route="OnboardingPage"
+        Shell.NavBarIsVisible="False"
+        Shell.TabBarIsVisible="False" />
+    <ShellContent 
+        ContentTemplate="{DataTemplate pages:LoginRegisterPage}"
+        Route="LoginRegisterPage"
+        Shell.NavBarIsVisible="False"
+        Shell.TabBarIsVisible="False" />
+
+    <TabBar>
+        <!-- Another Onboarding Page -->
+        <ShellContent 
+            Title="Home"
+            Icon="home"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage"/>
+        <ShellContent 
+             Title="All Pets"
+             Icon="list"
+             ContentTemplate="{DataTemplate pages:AllPetsPage}"
+             Route="AllPetsPage"/>
+        <ShellContent 
+             Title="Favorites"
+             Icon="heart"
+             ContentTemplate="{DataTemplate pages:FavoritesPage}"
+             Route="FavoritesPage" />
+        <ShellContent 
+             Title="Profile"
+             Icon="user"
+             ContentTemplate="{DataTemplate pages:ProfilePage}"
+             Route="ProfilePage"/>
+       
+    </TabBar>
+    
+</Shell>

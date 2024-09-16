@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetAdoption.Mobile.Pages.LoginRegisterPage"
+             Title=""
+             BackgroundColor="{StaticResource BgColor}">
+    <Grid RowDefinitions="2*, 3*">
+        <Border 
+          Grid.Row="0"
+          HeightRequest="250"
+          HorizontalOptions="Center"
+          VerticalOptions="Center"
+          Stroke="{StaticResource Primary}" 
+          StrokeShape="RoundRectangle 150" 
+          StrokeThickness="10"
+          WidthRequest="250">
+            <Image
+              Aspect="AspectFill"
+              Source="img_2.jpg"
+              HeightRequest="250"
+              WidthRequest="250"
+              HorizontalOptions="Center"
+              VerticalOptions="Center" />
+            <Border.Shadow>
+                <Shadow Brush="{StaticResource Primary}" Radius="250"></Shadow>
+            </Border.Shadow>
+        </Border>
+
+        <ScrollView Grid.Row="1" Padding="15">
+            <VerticalStackLayout Spacing="30">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label Grid.Column="0"
+                       Text="Login"
+                       FontSize="40"
+                       FontAttributes="Bold"
+                       LineHeight="1.2"/>
+                    <Label Grid.Column="1"
+                        Text="Switch to Register"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End"
+                        Padding="5"
+                        BackgroundColor="White"
+                        TextDecorations="Underline"/>
+                </Grid>
+                <VerticalStackLayout Spacing="10">
+                    <Entry Placeholder="Enter name" PlaceholderColor="{StaticResource Primary}"/>
+                    <Entry Placeholder="Enter email" Keyboard="Email" PlaceholderColor="{StaticResource Primary}"/>
+                    <Entry Placeholder="Enter password" IsPassword="True" PlaceholderColor="{StaticResource Primary}"/>
+                    <Button Text="Login" Style="{StaticResource btPrimary}"/>
+                </VerticalStackLayout>
+
+                <Grid ColumnDefinitions="*, Auto, *" ColumnSpacing="5">
+                    <BoxView Grid.Column="0"
+                             HeightRequest="1"
+                             Color="{StaticResource Primary}"/>
+
+                    <Button Grid.Column="1"
+                            Text="Skip for now"
+                            HorizontalOptions="Center"
+                            Padding="25, 5"
+                            HeightRequest="30"
+                            />
+
+                    <BoxView Grid.Column="2"
+                          HeightRequest="1"
+                          Color="{StaticResource Primary}"/>
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+    
+</ContentPage>
