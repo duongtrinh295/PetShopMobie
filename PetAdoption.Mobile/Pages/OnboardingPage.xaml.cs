@@ -11,6 +11,10 @@ public partial class OnboardingPage : ContentPage
 
     private async void Button_Clicked(object sender, EventArgs e)
     {
-		await Shell.Current.GoToAsync($"//{nameof(LoginRegisterPage)}");
+		var parameters = new Dictionary<string, object> 
+		{
+			[ nameof(LoginRegisterViewModel.IsFirstTime) ] = true
+		};
+		await Shell.Current.GoToAsync($"//{nameof(LoginRegisterPage)}", parameters);
     }
 }

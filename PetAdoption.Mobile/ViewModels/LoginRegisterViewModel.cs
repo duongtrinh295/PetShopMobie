@@ -1,29 +1,20 @@
-﻿using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using PetAdoption.Mobile.Models;
-using PetAdoption.Mobile.Pages;
-
-namespace PetAdoption.Mobile.ViewModels
+﻿namespace PetAdoption.Mobile.ViewModels
 {
     [QueryProperty(nameof(IsFirstTime), nameof(IsFirstTime))]
-    public partial class LoginRegisterViewModel : ObservableObject
+    public partial class LoginRegisterViewModel : BaseViewModel
     {
         [ObservableProperty]
         private bool _isRegistrationMode;
 
         [ObservableProperty]
-        private LoginRegisterModel _model;
+        private LoginRegisterModel _model = new();
 
         [ObservableProperty]
-        private bool? _isFirstTime;
+        private bool _isFirstTime;
 
-        [ObservableProperty]
-        private bool _isBusy;
-
-        public void Initialize()
+        partial void OnIsFirstTimeChanging(bool value)
         {
-            if (IsFirstTime.HasValue && IsFirstTime.Value)
+            if (value)
                 IsRegistrationMode = true;
         }
 
@@ -40,11 +31,11 @@ namespace PetAdoption.Mobile.ViewModels
         {
             if (!Model.Validate(IsRegistrationMode))
             {
-                var toast = CommunityToolkit.Maui.Alerts.Toast.Make("All fields are mandatory", ToastDuration.Short);
-                await toast.Show();
+                var toast = ShowToastAsync("All fields are mandatory");
                 return;
             }
             IsBusy = true;
+            // Make api call to Login/regiter user
             await Task.Delay(1000);
             await SkipForNow();
             IsBusy = false;
