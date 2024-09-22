@@ -45,7 +45,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Golden Retriever",
                     Price = 300,
                     Description = "Buddy is a friendly and playful Golden Retriever, known for being great with kids.",
-                    Image = "wwwroot/images/pets/img_1.jpg"
+                    Image = "img_1.jpg"
                 },
                 new Pet
                 {
@@ -54,7 +54,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Persian",
                     Price = 200,
                     Description = "Mittens is a calm and affectionate Persian cat.",
-                    Image = "wwwroot/images/pets/img_2.jpg"
+                    Image = "img_2.jpg"
                 },
                 new Pet
                 {
@@ -63,7 +63,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Beagle",
                     Price = 250,
                     Description = "Charlie is an energetic Beagle who loves to explore.",
-                    Image = "wwwroot/images/pets/img_3.jpg"
+                    Image = "img_3.jpg"
                 },
                 new Pet
                 {
@@ -72,7 +72,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Siamese",
                     Price = 180,
                     Description = "Whiskers is a vocal and curious Siamese cat.",
-                    Image = "wwwroot/images/pets/img_4.jpg"
+                    Image = "img_4.jpg"
                 },
                 new Pet
                 {
@@ -81,7 +81,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Labrador Retriever",
                     Price = 350,
                     Description = "Max is a loyal Labrador Retriever who loves to fetch.",
-                    Image = "wwwroot/images/pets/img_5.jpg"
+                    Image = "img_5.jpg"
                 },
                 new Pet
                 {
@@ -90,7 +90,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Poodle",
                     Price = 300,
                     Description = "Bella is an elegant Poodle who enjoys attention.",
-                    Image = "wwwroot/images/pets/img_6.jpg"
+                    Image = "img_6.jpg"
                 },
                 new Pet
                 {
@@ -99,7 +99,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Ragdoll",
                     Price = 250,
                     Description = "Luna is a gentle Ragdoll cat who loves to cuddle.",
-                    Image = "wwwroot/images/pets/img_7.jpg"
+                    Image = "img_7.jpg"
                 },
                 new Pet
                 {
@@ -108,7 +108,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Boxer",
                     Price = 320,
                     Description = "Rocky is a strong Boxer who loves to play.",
-                    Image = "wwwroot/images/pets/img_8.jpg"
+                    Image = "img_8.jpg"
                 },
                 new Pet
                 {
@@ -117,7 +117,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - British Shorthair",
                     Price = 220,
                     Description = "Shadow is a quiet British Shorthair who enjoys solitude.",
-                    Image = "wwwroot/images/pets/img_9.jpg"
+                    Image = "img_9.jpg"
                 },
                 new Pet
                 {
@@ -126,7 +126,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Dachshund",
                     Price = 200,
                     Description = "Oscar is a curious Dachshund who loves to dig.",
-                    Image = "wwwroot/images/pets/img_10.jpg"
+                    Image = "img_10.jpg"
                 },
                 new Pet
                 {
@@ -135,7 +135,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Bengal",
                     Price = 300,
                     Description = "Cleo is an active Bengal cat who loves to climb.",
-                    Image = "wwwroot/images/pets/img_11.jpg"
+                    Image = "img_11.jpg"
                 },
                 new Pet
                 {
@@ -144,7 +144,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Shih Tzu",
                     Price = 220,
                     Description = "Daisy is a sweet Shih Tzu who enjoys being pampered.",
-                    Image = "wwwroot/images/pets/img_12.jpg"
+                    Image = "img_12.jpg"
                 },
                 new Pet
                 {
@@ -153,7 +153,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Maine Coon",
                     Price = 350,
                     Description = "Simba is a large Maine Coon with a gentle disposition.",
-                    Image = "wwwroot/images/pets/img_13.jpg"
+                    Image = "img_13.jpg"
                 },
                 new Pet
                 {
@@ -162,7 +162,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Border Collie",
                     Price = 320,
                     Description = "Jack is an intelligent Border Collie who loves to work.",
-                    Image = "wwwroot/images/pets/img_14.jpg"
+                    Image = "img_14.jpg"
                 },
                 new Pet
                 {
@@ -171,7 +171,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Scottish Fold",
                     Price = 280,
                     Description = "Nala is a playful Scottish Fold with a unique look.",
-                    Image = "wwwroot/images/pets/img_15.jpg"
+                    Image = "img_15.jpg"
                 },
                 new Pet
                 {
@@ -180,7 +180,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - German Shepherd",
                     Price = 400,
                     Description = "Zeus is a protective German Shepherd who is very loyal.",
-                    Image = "wwwroot/images/pets/img_16.jpg"
+                    Image = "img_16.jpg"
                 },
                 new Pet
                 {
@@ -189,7 +189,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Cocker Spaniel",
                     Price = 280,
                     Description = "Milo is a friendly Cocker Spaniel with a lot of energy.",
-                    Image = "wwwroot/images/pets/img_17.jpg"
+                    Image = "img_17.jpg"
                 },
                 new Pet
                 {
@@ -198,7 +198,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Exotic Shorthair",
                     Price = 250,
                     Description = "Mochi is a calm Exotic Shorthair who enjoys lounging.",
-                    Image = "wwwroot/images/pets/img_18.jpg"
+                    Image = "img_18.jpg"
                 },
                 new Pet
                 {
@@ -207,7 +207,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Pomeranian",
                     Price = 300,
                     Description = "Bailey is a lively Pomeranian who loves to be the center of attention.",
-                    Image = "wwwroot/images/pets/img_19.jpg"
+                    Image = "img_19.jpg"
                 },
                 new Pet
                 {
@@ -216,7 +216,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Abyssinian",
                     Price = 240,
                     Description = "Oliver is a curious Abyssinian who loves to explore.",
-                    Image = "wwwroot/images/pets/img_20.jpg"
+                    Image = "img_20.jpg"
                 },
                 new Pet
                 {
@@ -225,7 +225,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Redbone Coonhound",
                     Price = 270,
                     Description = "Rusty is an active Redbone Coonhound who loves to run.",
-                    Image = "wwwroot/images/pets/img_21.jpg"
+                    Image = "img_21.jpg"
                 },
                 new Pet
                 {
@@ -234,7 +234,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Sphynx",
                     Price = 320,
                     Description = "Zoe is a hairless Sphynx with a very affectionate personality.",
-                    Image = "wwwroot/images/pets/img_22.jpg"
+                    Image = "img_22.jpg"
                 },
                 new Pet
                 {
@@ -243,7 +243,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Australian Shepherd",
                     Price = 350,
                     Description = "Finn is an energetic Australian Shepherd who loves to herd.",
-                    Image = "wwwroot/images/pets/img_23.jpg"
+                    Image = "img_23.jpg"
                 },
                 new Pet
                 {
@@ -252,7 +252,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Burmese",
                     Price = 280,
                     Description = "Lily is a vocal Burmese cat who enjoys human company.",
-                    Image = "wwwroot/images/pets/img_24.jpg"
+                    Image = "img_24.jpg"
                 },
                 new Pet
                 {
@@ -261,7 +261,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Rottweiler",
                     Price = 380,
                     Description = "Rex is a strong Rottweiler who is very protective.",
-                    Image = "wwwroot/images/pets/img_25.jpg"
+                    Image = "img_25.jpg"
                 },
                 new Pet
                 {
@@ -270,7 +270,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Norwegian Forest",
                     Price = 320,
                     Description = "Chloe is a fluffy Norwegian Forest cat who loves the outdoors.",
-                    Image = "wwwroot/images/pets/img_26.jpg"
+                    Image = "img_26.jpg"
                 },
                 new Pet
                 {
@@ -279,7 +279,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Cavalier King Charles Spaniel",
                     Price = 330,
                     Description = "Ginger is a gentle Cavalier King Charles Spaniel who loves to cuddle.",
-                    Image = "wwwroot/images/pets/img_27.jpg"
+                    Image = "img_27.jpg"
                 },
                 new Pet
                 {
@@ -288,7 +288,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Shiba Inu",
                     Price = 340,
                     Description = "Toby is an independent Shiba Inu with a lot of personality.",
-                    Image = "wwwroot/images/pets/img_28.jpg"
+                    Image = "img_28.jpg"
                 },
                 new Pet
                 {
@@ -297,7 +297,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Cat - Russian Blue",
                     Price = 300,
                     Description = "Sasha is a reserved Russian Blue who enjoys quiet environments.",
-                    Image = "wwwroot/images/pets/img_29.jpg"
+                    Image = "img_29.jpg"
                 },
                 new Pet
                 {
@@ -306,7 +306,7 @@ namespace PetAdoption.Api.Data
                     Breed = "Dog - Bulldog",
                     Price = 350,
                     Description = "Bruno is a strong Bulldog with a gentle heart",
-                    Image = "wwwroot/images/pets/img_30.jpg"
+                    Image = "img_30.jpg"
 
                 }
             };

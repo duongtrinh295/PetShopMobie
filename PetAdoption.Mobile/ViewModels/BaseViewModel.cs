@@ -20,7 +20,7 @@
         protected async Task ShowToastAsync(string message) =>
             await CommunityToolkit.Maui.Alerts.Toast.Make(message).Show();
 
-        protected async Task ShowAlertAsync(string title, string message, string buttonText) =>
+        protected async Task ShowAlertAsync(string title, string message, string buttonText = "OK") =>
             await App.Current.MainPage.DisplayAlert(title, message, buttonText);
 
         protected async Task ShowConfirmAsync(string title, string message, string okButtonText, string cancelButtionText) =>

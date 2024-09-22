@@ -1,12 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PetAdoption.Mobile.ViewModels"
+             xmlns:models="clr-namespace:PetAdoption.Mobile.ViewModels"
+             xmlns:dtos="clr-namespace:PetAdoption.Shared.Dtos;assembly=PetAdoption.Shared"
              x:Class="PetAdoption.Mobile.Pages.HomePage"
+             x:DataType="vm:HomeViewModel"
+             Shell.NavBarIsVisible="False"
              Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI! Homepage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="petsHorizontalListTemplate" x:DataType="dtos:PetListDto">
+                <VerticalStackLayout Spacing="2">
+                    <Border
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        StrokeShape="RoundRectangle 50"
+                        StrokeThickness="0">
+                        <Image
+                            Source="{Binding Image}"
+                            HeightRequest="100"
+                            WidthRequest="100"
+                            Aspect="AspectFill"
+                   />
+                    </Border>
+                    <Label
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="{Binding Name}"
+                        TextColor="{StaticResource Primary}"
+               />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid RowDefinitions="80, *">
+        <VerticalStackLayout Grid.Row="0"
+                             Padding="15"
+                             Spacing="5">
+            <Label FontSize="16" Text="{Binding UserName, StringFormat='Hi {0}'}"/>
+            <Label FontSize="20" Text="Welcome"/>
+        </VerticalStackLayout>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout>
+                <CarouselView ItemsSource="{Binding NewlyAdded}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate x:DataType="dtos:PetDetailDto">
+                            <Grid RowDefinitions="*, Auto, Auto"
+                                  RowSpacing="8">
+                                <Border Grid.Row="0" HeightRequest="250"
+                                        WidthRequest="250"
+                                        StrokeShape="RoundRectangle 125"
+                                        StrokeThickness="0"
+                                        >
+                                    <Image Source="{Binding Image}"
+                                           HeightRequest="250"
+                                           WidthRequest="250"
+                                           Aspect="AspectFill"
+                                           ></Image>
+                                </Border>
+                                <Label Grid.Row="1"
+                                        Text="{Binding Name}"
+                                       FontAttributes="Bold"
+                                       FontSize="20"
+                                       HorizontalOptions="Center"
+                                       />
+                                <Label 
+                                    Grid.Row="2"
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    Text="{Binding Price, StringFormat='{0:C}'}"
+                                    HorizontalOptions="Center"
+                                    TextColor="{StaticResource Primary}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+                <VerticalStackLayout Padding="15"
+                                     Spacing="15">
+                    <Label Text="Popular Pets"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           />
+                    <CollectionView ItemsSource="{Binding Poplar}"
+                                    ItemTemplate="{StaticResource petsHorizontalListTemplate}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                               ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout Padding="15"
+                                     Spacing="15">
+                    <Label Text="You many like"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           />
+                    <CollectionView ItemsSource="{Binding Random}"
+                                    ItemTemplate="{StaticResource petsHorizontalListTemplate}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                               ItemSpacing="10"/>
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        <Grid Grid.RowSpan="2"
+              IsVisible="{Binding IsBusy}">
+            <BoxView Color="{StaticResource Primary}" Opacity="0.8"/>
+            <ActivityIndicator VerticalOptions="Center" 
+                               HorizontalOptions="Center"
+                               IsRunning="True"
+                               Color="White"/>
+        </Grid>   
+      
+    </Grid>
 </ContentPage>

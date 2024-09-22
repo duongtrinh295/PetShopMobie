@@ -1,4 +1,5 @@
 ﻿using PetAdoption.Api.Data.Entities;
+using PetAdoption.Shared;
 using PetAdoption.Shared.Dtos;
 
 namespace PetAdoption.Api.Extensions
@@ -14,7 +15,7 @@ namespace PetAdoption.Api.Extensions
                 Description = p.Description,
                 Gender = p.Gender,
                 Id = p.Id,
-                Image = p.Image,
+                Image = $"{AppConstants.BaseApiUrl}/images/pets/{p.Image}",
                 Name = p.Name,
                 Price = p.Price,
             };

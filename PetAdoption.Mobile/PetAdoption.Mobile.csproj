@@ -32,10 +32,16 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<!--<MauiIcon Include="Resources\AppIcon\accessibility.svg" />-->
+		<MauiIcon Include="Resources\AppIcon\alien.svg">
+		  <Color>#512BD4</Color>
+		  <ForegroundFile>Resources\AppIcon\alien.svg</ForegroundFile>
+		</MauiIcon>
+		<MauiIcon Include="Resources\AppIcon\alien.svg" ForegroundFile="Resources\AppIcon\appicon.svg" Color="#512BD4" />
+		<!--<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />-->
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\alien.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -169,6 +175,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\accessibility.svg" />
+	  <None Remove="Resources\AppIcon\alien.svg" />
+	  <None Remove="Resources\AppIcon\back.jpg" />
 	  <None Remove="Resources\Fonts\Ubuntu-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
 	  <None Remove="Resources\Images\heart.svg" />

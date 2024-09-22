@@ -20,7 +20,7 @@ namespace PetAdoption.Api.Controllers
             await _petService.GetAllPetsAsync();
 
         //api/pets/new/5
-        [HttpGet("/new/{count:int}")]
+        [HttpGet("new/{count:int}")]
         public async Task<ApiRespone<PetListDto[]>> GetNewlyAddedPetsAsyns(int count) =>
             await _petService.GetNewlyAddedPetsAsyns(count);
 
@@ -30,12 +30,12 @@ namespace PetAdoption.Api.Controllers
             await _petService.GetPetDetailsAsync(petId);
 
         //api/popular/new/5
-        [HttpGet("/popular/{count:int}")]
+        [HttpGet("popular/{count:int}")]
         public async Task<ApiRespone<PetListDto[]>> GetPopularPetsAsyns(int count) =>
             await _petService.GetPopularPetsAsyns(count);
 
         //api/pets/random/5
-        [HttpGet("/random/{count:int}")]
+        [HttpGet("random/{count:int}")]
         public async Task<ApiRespone<PetListDto[]>> GetRandomPetsAsyns(int count) =>
             await _petService.GetRandomPetsAsyns(count);
 
