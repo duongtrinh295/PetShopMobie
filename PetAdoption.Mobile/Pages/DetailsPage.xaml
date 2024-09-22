@@ -2,11 +2,115 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PetAdoption.Mobile.Pages.DetailsPage"
+             xmlns:vm="clr-namespace:PetAdoption.Mobile.ViewModels"
+            xmlns:models="clr-namespace:PetAdoption.Mobile.ViewModels"
+            xmlns:dtos="clr-namespace:PetAdoption.Shared.Dtos;assembly=PetAdoption.Shared"
+             Shell.NavBarIsVisible="False"
+             x:DataType="vm:DetailViewModel"
+             Shell.PresentationMode="ModalAnimated"
+             BackgroundColor="{StaticResource BgColor}"
              Title="DetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style
+                TargetType="Border" x:Key="iconBtnContainer">
+                <Setter Property="Padding" Value="4"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="StrokeShape" Value="RoundRectangle 5"/>
+                <Setter Property="StrokeThickness" Value="0"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid
+        RowDefinitions="Auto, *, *, Auto"
+        RowSpacing="20"
+        Padding="10, 20, 10, 10"
+        >
+        <FlexLayout Grid.Row="0"
+                    JustifyContent="SpaceBetween">
+            <Border Style="{StaticResource iconBtnContainer}"
+                >
+                <Image Source="let_arrow"/>
+            </Border>
+            <Label Text="Pet Details"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Border Style="{StaticResource iconBtnContainer}"
+                 >      
+                <Image Source="heart"/>
+            </Border>
+        </FlexLayout>
+
+        <Border
+            Grid.Row="1"
+            HeightRequest="300"
+            WidthRequest="300"
+            StrokeShape="RoundRectangle 150"
+            StrokeThickness="0"
+            HorizontalOptions="Center"
+            >
+            <Image Source="{Binding PetDetail.Image}"
+                   HeightRequest="300"
+                   WidthRequest="300"
+                   Aspect="AspectFill"/>
+        </Border>
+        <Grid Grid.Row="2"
+              RowDefinitions="Auto, Auto, Auto"
+              ColumnDefinitions="*, *, *"
+              RowSpacing="25">
+            <Label Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="{Binding PetDetail.Name}"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+            <Border Grid.Row="0"
+                    Grid.Column="2"
+                    BackgroundColor="White"
+                    StrokeThickness="0"
+                    Padding="5">
+                <Label Text="{Binding PetDetail.Price, StringFormat='{0:C}'}"
+                       TextColor="{StaticResource Primary}"
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="End"/>
+            </Border>
+
+            <Label Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   Text="{Binding PetDetail.Description}"
+                   FontSize="16"
+                   LineHeight="1.5"/>
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                ColumnDefinitions="Auto, Auto"
+                RowDefinitions="Auto, Auto"
+                ColumnSpacing="4">
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Style="{StaticResource iconBtnContainer}"
+                    >
+                    <Image Source="breed"/>
+                </Border>
+                <Label Grid.Row="0"
+                       Grid.Column="1"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       Text="Breed"/>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding PetDetail.Breed}"
+                       FontSize="12"
+                       LineBreakMode="WordWrap"/>
+            </Grid>
+            
+        </Grid>
+    </Grid>
 </ContentPage>
