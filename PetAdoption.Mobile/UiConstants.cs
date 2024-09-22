@@ -9,5 +9,6 @@ namespace PetAdoption.Mobile
     public static class UiConstants
     {
         public const string OnboardingShow = "onboarding-shown";
+        public const string UserInfo = "user-info";
     }
 }

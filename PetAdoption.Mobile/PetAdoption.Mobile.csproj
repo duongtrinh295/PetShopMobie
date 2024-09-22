@@ -12,7 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>PetAdoption.Mobile</ApplicationTitle>
+		<ApplicationTitle>PetShop</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.petadoption.mobile</ApplicationId>
@@ -213,6 +213,7 @@
 		<PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>

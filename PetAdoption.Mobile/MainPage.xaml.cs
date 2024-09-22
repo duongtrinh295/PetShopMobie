@@ -15,7 +15,7 @@ namespace PetAdoption.Mobile
             base.OnAppearing();
 
             if (Preferences.Default.ContainsKey(UiConstants.OnboardingShow))
-                await Shell.Current.GoToAsync($"//{nameof(OnboardingPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(LoginRegisterPage)}");
             else
                 await Shell.Current.GoToAsync($"//{nameof(OnboardingPage)}");
         }

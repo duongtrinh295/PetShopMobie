@@ -1,6 +1,4 @@
-﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
-
+﻿
 namespace PetAdoption.Mobile
 {
     public static class MauiProgram
@@ -21,12 +19,39 @@ namespace PetAdoption.Mobile
             builder.Logging.AddDebug();
 #endif
             RegisterAppDependencies(builder.Services);
+            ConfigureRefit(builder.Services);
             return builder.Build();
         }
         static void RegisterAppDependencies(IServiceCollection services)
         {
+            services.AddSingleton<CommonService>();
+
+            services.AddTransient<AuthService>();
+
             services.AddTransient<LoginRegisterViewModel>()
                 .AddTransient<LoginRegisterPage>();
+        }
+
+        static void ConfigureRefit(IServiceCollection services)
+        {
+            services.AddRefitClient<IAuthApi>()
+                .ConfigureHttpClient(SetHttpClient);
+
+            services.AddRefitClient<IPetsApi>()
+                .ConfigureHttpClient(SetHttpClient);
+
+            services.AddRefitClient<IUserApi>(sp =>
+            {
+                var commonService = sp.GetRequiredService<CommonService>();
+                return new RefitSettings()
+                {
+                    AuthorizationHeaderValueGetter = (_, __) => Task.FromResult(commonService.Token ?? string.Empty)
+                };
+            })
+              .ConfigureHttpClient(SetHttpClient);
+
+            static void SetHttpClient(HttpClient httpClient) =>
+                httpClient.BaseAddress = new Uri(AppConstants.BaseApiUrl);
         }
     }
 }

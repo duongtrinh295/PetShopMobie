@@ -3,6 +3,11 @@
     [QueryProperty(nameof(IsFirstTime), nameof(IsFirstTime))]
     public partial class LoginRegisterViewModel : BaseViewModel
     {
+        private readonly AuthService _authService;
+        public LoginRegisterViewModel(AuthService authService)
+        {
+            _authService = authService;
+        }
         [ObservableProperty]
         private bool _isRegistrationMode;
 
@@ -36,8 +41,13 @@
             }
             IsBusy = true;
             // Make api call to Login/regiter user
-            await Task.Delay(1000);
-            await SkipForNow();
+
+            var status = await _authService.LoginRegisterAsync(Model);
+
+            if(status)
+                await SkipForNow();
+
+
             IsBusy = false;
         }
 

@@ -42,6 +42,8 @@ namespace PetAdoption.Api.Services
             var dbUser = new User
             {
                 Email = dto.Email,
+                Salt = "OK",
+                Hash = "OK",
                 Name = dto.Name,
                 Password = dto.Password
             };

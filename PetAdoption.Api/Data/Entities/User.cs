@@ -11,7 +11,7 @@ namespace PetAdoption.Api.Data.Entities
         [Required, MaxLength(30)]
         public string Name { get; set; }
 
-        [Required, MaxLength(10)]
+        [Required, MaxLength(256)]
         public string Password { get; set; }
 
         [Required, MaxLength(100)]
