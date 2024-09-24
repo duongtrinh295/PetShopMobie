@@ -21,6 +21,7 @@
             IsBusy = true;
             try
             {
+                await Task.Delay(100);
                 var apiResponse = await _petsApi.GetPetDetailsAsync(petId);
                 if (apiResponse.IsSuccess)
                     PetDetail = apiResponse.data;
@@ -36,5 +37,9 @@
                 IsBusy = false;
             }
         }
+
+
+        [RelayCommand]
+        private async Task GoBack() => await GoToAsync("..");
     }
 }
