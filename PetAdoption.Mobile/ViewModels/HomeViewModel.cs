@@ -50,11 +50,5 @@ namespace PetAdoption.Mobile.ViewModels
                 IsBusy = false;
             }
         }
-
-        [RelayCommand]
-        private async Task GotoDetailsPage(int petId) =>
-            await GoToAsync($"{nameof(DetailsPage)}?{nameof(DetailViewModel.PetId)}={petId}");
-        
-    
     }
 }
