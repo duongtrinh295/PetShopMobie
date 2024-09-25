@@ -38,6 +38,10 @@ namespace PetAdoption.Mobile
                 .AddSingleton<AllPetsPage>();
 
             services.AddTransientWithShellRoute<DetailsPage, DetailViewModel>(nameof(DetailsPage));
+
+            services.AddSingleton<ProfileViewModel>()
+                .AddSingleton<ProfilePage>();
+
         }
 
         static void ConfigureRefit(IServiceCollection services)

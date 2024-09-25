@@ -5,5 +5,9 @@
         public string? Token { get; set; }
 
         public void SetToken(string? token) => Token = token;
+
+        public event EventHandler LoginStatusChanged;
+
+        public void ToggleLoginStatus() => LoginStatusChanged?.Invoke(this, EventArgs.Empty);
     }
 }

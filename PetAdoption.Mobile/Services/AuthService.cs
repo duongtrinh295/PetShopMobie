@@ -53,7 +53,9 @@ namespace PetAdoption.Mobile.Services
             }
             var user = new LoggedInUser(apiResponse.data.UserId, apiResponse.data.Name, apiResponse.data.Token);
             SetUser(user);
+
             _commonService.SetToken(apiResponse.data.Token);
+            _commonService.ToggleLoginStatus();
 
             return true;
 
@@ -63,10 +65,12 @@ namespace PetAdoption.Mobile.Services
             Preferences.Default.Set(UiConstants.UserInfo, user.ToJson());
 
 
-        public async Task Logout()
+        public void Logout()
         {
             _commonService.SetToken(null);
             Preferences.Default.Remove(UiConstants.UserInfo);
+            _commonService.ToggleLoginStatus();
+
         }
 
         public LoggedInUser GetUser()

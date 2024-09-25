@@ -6,7 +6,7 @@
              xmlns:vm="clr-namespace:PetAdoption.Mobile.ViewModels"
              Title=""
              x:DataType="vm:LoginRegisterViewModel"
-             BackgroundColor="{StaticResource BgColor}">
+             BackgroundColor="{StaticResource White}">
     <Grid RowDefinitions="2*, 3*">
         <Border 
           Grid.Row="0"
@@ -31,7 +31,7 @@
 
         <ScrollView Grid.Row="1" Padding="15">
             <VerticalStackLayout Spacing="30">
-                <Grid ColumnDefinitions="*, Auto">
+                <Grid  ColumnDefinitions="*, Auto">
                     <Label Grid.Column="0"
                        Text="Login"
                        FontSize="40"

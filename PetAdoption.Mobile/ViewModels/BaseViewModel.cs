@@ -23,7 +23,7 @@
         protected async Task GoToAsync(ShellNavigationState state, bool animate, IDictionary<string, object> parameters) =>
             await Shell.Current.GoToAsync(state, animate, parameters);
 
-        protected async Task ShowToastAsync(string message) =>
+        public async Task ShowToastAsync(string message) =>
             await CommunityToolkit.Maui.Alerts.Toast.Make(message).Show();
 
         protected async Task ShowAlertAsync(string title, string message, string buttonText = "OK") =>
