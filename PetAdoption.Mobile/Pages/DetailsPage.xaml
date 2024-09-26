@@ -28,8 +28,23 @@
                    FontSize="20"
                    FontAttributes="Bold"
                    VerticalOptions="Center"/>
-            <Border Style="{StaticResource iconBtnContainer}" >      
-                <Image Source="heart"/>
+            <Border Style="{StaticResource iconBtnContainer}" >
+                <Image Source="heart">
+                    <!--<Image.Shadow>
+                        <Shadow/>
+                    </Image.Shadow>-->
+                    <Image.Triggers>
+                        <DataTrigger
+                            Binding="{Binding PetDetail.IsFavorite}"
+                            TargetType="Image"
+                            Value="True">
+                            <Setter Property="Source" Value="heart_svgrepo_com"/>
+                        </DataTrigger>
+                    </Image.Triggers>
+                </Image>
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ToggleFavoriteCommand}"/>
+                </Border.GestureRecognizers>
             </Border>
         </FlexLayout>
 
@@ -74,23 +89,23 @@
                    FontSize="16"
                    LineHeight="1.5"/>
 
-            <controls:PetFeatControl Grid.Row="2" 
+            <controls:PetFeatControl  Grid.Row="2" 
                                      Grid.Column="0"
-                                     Icon="heart"
+                                     Icon="pet_com"
                                      Lable="Breed"
                                      Value="{Binding PetDetail.Breed}"
                                      />
             
             <controls:PetFeatControl Grid.Row="2" 
                           Grid.Column="1"
-                          Icon="{Binding PetDetail.GenderImage}"
+                          Icon="gender_svgrepo_com"
                           Lable="Gender"
                           Value="{Binding PetDetail.GenderDisplay}"
                           />
 
             <controls:PetFeatControl Grid.Row="2" 
                           Grid.Column="2"
-                          Icon="heart"
+                          Icon="calendar_svgrepo_com"
                           Lable="Age"
                           Value="{Binding PetDetail.Age}"
                           />

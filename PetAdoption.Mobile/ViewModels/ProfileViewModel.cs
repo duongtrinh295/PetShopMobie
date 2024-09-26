@@ -21,6 +21,7 @@
                 var userInfo = _authService.GetUser();
                 UserName = userInfo.Name;
                 IsLoggedIn = true;
+                _commonService.SetToken(userInfo.Token);
             }
             else
             {

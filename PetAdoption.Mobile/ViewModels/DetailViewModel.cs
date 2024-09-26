@@ -4,16 +4,21 @@
     public partial class DetailViewModel : BaseViewModel
     {
         private readonly IPetsApi _petsApi;
-        public DetailViewModel(IPetsApi petsApi)
+        private readonly AuthService _authService;
+        private readonly IUserApi _userApi;
+
+        public DetailViewModel(IPetsApi petsApi, AuthService authService, IUserApi userApi)
         {
             _petsApi = petsApi;
+            _authService = authService;
+            _userApi = userApi;
         }
 
         [ObservableProperty]
         private int _petId;
 
         [ObservableProperty]
-        private PetDetailDto _petDetail = new();
+        private Pet _petDetail = new();
 
         async partial void OnPetIdChanged(int petId)
         {
@@ -22,9 +27,28 @@
             try
             {
                 await Task.Delay(100);
-                var apiResponse = await _petsApi.GetPetDetailsAsync(petId);
+                var apiResponse = _authService.IsLoggedIn
+                    ? await _userApi.GetPetDetailsAsync(petId)
+                    : await _petsApi.GetPetDetailsAsync(petId);
                 if (apiResponse.IsSuccess)
-                    PetDetail = apiResponse.data;
+                {
+
+                    var petDto = apiResponse.data;
+                    PetDetail = new Pet
+                    {
+                        AdoptionStatus = petDto.AdoptionStatus,
+                        Age = petDto.Age,
+                        Breed = petDto.Breed,
+                        Description = petDto.Description,
+                        GenderDisplay = petDto.GenderDisplay,
+                        GenderImage = petDto.GenderImage,
+                        Id = petDto.Id,
+                        Image = petDto.Image,
+                        IsFavorite = petDto.IsFavorite,
+                        Name = petDto.Name,
+                        Price = petDto.Price
+                    };
+                }
                 else
                     await ShowAlertAsync("Error in fetching pet details", apiResponse.Message);
             }
@@ -41,5 +65,30 @@
 
         [RelayCommand]
         private async Task GoBack() => await GoToAsync("..");
+
+        [RelayCommand]
+        private async Task ToggleFavorite()
+        {
+            if (!_authService.IsLoggedIn)
+            {
+                await ShowToastAsync("You need to be logged in to mark this pet as favorite");
+                return;
+            }
+            PetDetail.IsFavorite = !PetDetail.IsFavorite;
+
+            try
+            {
+                IsBusy = true;
+                await _userApi.ToggleFavoritesAsync(PetId);
+                IsBusy = false;
+            }
+            catch (Exception ex)
+            {
+                IsBusy= false;
+                //Revert
+                PetDetail.IsFavorite = !PetDetail.IsFavorite;
+                await ShowAlertAsync("Error in toggling favorite status", ex.Message);
+            }
+        }
     }
 }

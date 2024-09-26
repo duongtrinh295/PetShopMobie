@@ -4,15 +4,15 @@ namespace PetAdoption.Mobile.ViewModels
     public partial class HomeViewModel : BaseViewModel
     {
         private readonly IPetsApi _petsApi;
-        public readonly CommonService _CommonService;
+        public readonly CommonService _commonService;
         private readonly AuthService _authService;
 
         public HomeViewModel(IPetsApi petsApi, CommonService commonService, AuthService authService)
         {
             _petsApi = petsApi;
-            _CommonService = commonService;
+            _commonService = commonService;
             _authService = authService;
-            _CommonService.LoginStatusChanged += OnLoginStatusChanged;
+            _commonService.LoginStatusChanged += OnLoginStatusChanged;
             SetUserInfo();
         }
 
@@ -24,6 +24,7 @@ namespace PetAdoption.Mobile.ViewModels
             {
                 var userInfo = _authService.GetUser();
                 UserName = userInfo.Name;
+                _commonService.SetToken(userInfo.Token);
             }
             else
             {

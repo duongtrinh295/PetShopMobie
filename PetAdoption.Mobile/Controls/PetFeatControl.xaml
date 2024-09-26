@@ -4,6 +4,7 @@
              x:Class="PetAdoption.Mobile.Controls.PetFeatControl"
              x:Name="this">
     <Grid
+        HorizontalOptions="Center"
         Background="White"
         BindingContext="{x:Reference this}"
         ColumnDefinitions="Auto, Auto"
@@ -16,7 +17,7 @@
             VerticalOptions="Start"
           Style="{StaticResource iconBtnContainer}"
           >
-            <Image Source="{Binding Icon}"/>
+            <Image  Source="{Binding Icon}"/>
         </Border>
         <Label Grid.Row="0"
              Grid.Column="1"

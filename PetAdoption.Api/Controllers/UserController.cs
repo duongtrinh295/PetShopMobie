@@ -6,16 +6,18 @@ using System.Security.Claims;
 
 namespace PetAdoption.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     [Authorize]
     public class UserController : Controller
     {
         private readonly IUserPetService _userPetService;
+        private readonly IPetService _petService;
 
-        public UserController(IUserPetService userPetService)
+        public UserController(IUserPetService userPetService, IPetService petService)
         {
             _userPetService = userPetService;
+            _petService = petService;
         }
 
         
@@ -40,5 +42,12 @@ namespace PetAdoption.Api.Controllers
         [HttpPost("favorites/{petId:int}")]
         public async Task<ApiRespone> ToggleFavoritesAsync(int petId) =>
             await _userPetService.ToggleFavoritesAsync(UserId, petId);
+
+
+        //api/user/view-pet-details/5
+        [HttpGet("view-pet-details/{petId:int}")]
+        public async Task<ApiRespone<PetDetailDto>> GetPetDetailsAsync(int petId) =>
+            await _petService.GetPetDetailsAsync(petId, UserId);
+
     }
 }
