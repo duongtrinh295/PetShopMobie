@@ -17,6 +17,7 @@ namespace PetAdoption.Api.Services
         public async Task<ApiRespone<PetListDto[]>> GetNewlyAddedPetsAsyns(int count)
         {
             var pets = await _context.Pets
+                .Where(p => p.AdoptionStatus == 0) // Thêm điều kiện kiểm tra AdoptionStatus
                 .Select(Selectors.PetToPetListDto)
                 .OrderByDescending(p => p.Id)
                 .Take(count)
@@ -28,6 +29,7 @@ namespace PetAdoption.Api.Services
         public async Task<ApiRespone<PetListDto[]>> GetPopularPetsAsyns(int count)
         {
             var pets = await _context.Pets
+                .Where(p => p.AdoptionStatus == 0) // Thêm điều kiện kiểm tra AdoptionStatus
                 .OrderByDescending(p => p.Views)
                 .Take(count)
                 .Select(Selectors.PetToPetListDto)
@@ -36,10 +38,10 @@ namespace PetAdoption.Api.Services
             return ApiRespone<PetListDto[]>.Success(pets);
         }
 
-
         public async Task<ApiRespone<PetListDto[]>> GetRandomPetsAsyns(int count)
         {
             var pets = await _context.Pets
+                .Where(p => p.AdoptionStatus == 0) // Thêm điều kiện kiểm tra AdoptionStatus
                 .OrderByDescending(_ => Guid.NewGuid())
                 .Take(count)
                 .Select(Selectors.PetToPetListDto)
@@ -51,6 +53,7 @@ namespace PetAdoption.Api.Services
         public async Task<ApiRespone<PetListDto[]>> GetAllPetsAsync()
         {
             var pets = await _context.Pets
+                .Where(p => p.AdoptionStatus == 0)
                 .OrderByDescending(p => p.Id)
                 .Select(Selectors.PetToPetListDto)
                 .ToArrayAsync();
