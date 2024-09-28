@@ -45,6 +45,8 @@ namespace PetAdoption.Mobile
             services.AddSingleton<FavoritesViewModel>()
               .AddSingleton<FavoritesPage>();
 
+            services.AddTransientWithShellRoute<AdoptionsPage, MyAdoptionsViewModel>(nameof(AdoptionsPage));
+
         }
 
         static void ConfigureRefit(IServiceCollection services)

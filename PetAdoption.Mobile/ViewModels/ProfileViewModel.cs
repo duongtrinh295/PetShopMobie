@@ -4,11 +4,13 @@
     {
         private readonly AuthService _authService;
         private readonly CommonService _commonService;
+        private readonly IUserApi _userApi;
 
-        public ProfileViewModel(AuthService authService, CommonService commonService)
+        public ProfileViewModel(AuthService authService, CommonService commonService, IUserApi userApi)
         {
             _authService = authService;
             _commonService = commonService;
+            _userApi = userApi;
             _commonService.LoginStatusChanged += OnLoginStatusChanged;
             SetUserInfo();
         }
@@ -64,6 +66,24 @@
                 await GoToAsync($"//{nameof(HomePage)}");
             }
                 
+        }
+
+        [RelayCommand]
+        private async Task ChangePasswordAsync()
+        {
+            if (!_authService.IsLoggedIn)
+            {
+                await ShowToastAsync("You need to be logged in to change your password");
+                return;
+            }
+            var newPass = await App.Current.MainPage.DisplayPromptAsync("Change Password", "Change password", placeholder: "Enter new password");
+            if(!string.IsNullOrWhiteSpace(newPass))
+            {
+                IsBusy = true; 
+                await _userApi.ChangePasswordAsnyc(new SingeValue<string>(newPass));
+                IsBusy = false;
+                await ShowToastAsync("Password changed successfully");
+            }
         }
     }
 }

@@ -36,16 +36,13 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<!--<MauiIcon Include="Resources\AppIcon\accessibility.svg" />-->
-		<MauiIcon Include="Resources\AppIcon\alien.svg">
-		  <Color>#512BD4</Color>
-		  <ForegroundFile>Resources\AppIcon\alien.svg</ForegroundFile>
-		</MauiIcon>
-		<MauiIcon Include="Resources\AppIcon\alien.svg" ForegroundFile="Resources\AppIcon\appicon.svg" Color="#512BD4" />
-		<!--<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />-->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\alien.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="128,128" />
+
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -179,9 +176,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\AppIcon\accessibility.svg" />
-	  <None Remove="Resources\AppIcon\alien.svg" />
-	  <None Remove="Resources\AppIcon\back.jpg" />
+	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\AppIcon\appiconfg.svg" />
 	  <None Remove="Resources\Fonts\Ubuntu-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
 	  <None Remove="Resources\Images\calendar_svgrepo_com.svg" />
@@ -226,6 +222,7 @@
 	  <None Remove="Resources\Images\right_arrow.svg" />
 	  <None Remove="Resources\Images\success.jpg" />
 	  <None Remove="Resources\Images\user.svg" />
+	  <None Remove="Resources\Splash\splash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -237,6 +234,15 @@
 
 	<ItemGroup>
 	  <Folder Include="Services\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiIcon Include="Resources\AppIcon\appicon.svg" />
+	  <MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiSplashScreen Include="Resources\Splash\splash.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

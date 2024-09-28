@@ -11,7 +11,7 @@
             await GoToAsync($"{nameof(DetailsPage)}?{nameof(DetailViewModel.PetId)}={petId}");
 
 
-        protected async Task GoToAsync(ShellNavigationState state) =>
+        public async Task GoToAsync(ShellNavigationState state) =>
             await Shell.Current.GoToAsync(state);
 
         protected async Task GoToAsync(ShellNavigationState state, bool animate) =>

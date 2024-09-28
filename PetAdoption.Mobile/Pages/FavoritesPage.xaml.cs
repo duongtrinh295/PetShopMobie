@@ -5,8 +5,8 @@ public partial class FavoritesPage : ContentPage
     private readonly FavoritesViewModel _viewModel;
 
     public FavoritesPage(FavoritesViewModel viewModel)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         _viewModel = viewModel;
         BindingContext = _viewModel;
     }
@@ -14,6 +14,10 @@ public partial class FavoritesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        await _viewModel.InitializeAsync();
+        if (BindingContext is FavoritesViewModel viewModel)
+        {
+            await viewModel.InitializeAsync();
+        }
+
     }
 }

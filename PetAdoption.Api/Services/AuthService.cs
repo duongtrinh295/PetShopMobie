@@ -15,6 +15,23 @@ namespace PetAdoption.Api.Services
             _context = Context;
             _tokenService = tokenService;
         }
+
+        public async Task<ApiRespone> ChangePasswordAsync(int userId, string newPassword)
+        {
+            var dbUser = await _context.Users
+                .AsTracking()
+                .FirstOrDefaultAsync(x => x.Id == userId);
+
+            if(dbUser is not null)
+            {
+                dbUser.Password = newPassword;
+                await _context.SaveChangesAsync();
+                return ApiRespone.Success();
+            }
+            return ApiRespone.Fail("Invalid request");
+
+        }
+
         public async Task<ApiRespone<AuthResponseDto>> LoginAsyns(LoginRequestDto dto)
         {
             var dbUser = await _context.Users.FirstOrDefaultAsync(x => x.Email == dto.Email);

@@ -18,7 +18,7 @@ namespace PetAdoption.Mobile.ViewModels
         }
 
         [ObservableProperty]
-        private int _petId;
+        private int _petId = new();
 
         [ObservableProperty]
         private Pet _petDetail = new();
@@ -95,25 +95,12 @@ namespace PetAdoption.Mobile.ViewModels
         }
 
         [RelayCommand]
-
         public async Task AdoptPetAsync()
         {
             if (!_authService.IsLoggedIn)
             {
-                // Hiển thị hộp thoại xác nhận để đăng nhập
-                bool shouldLogin = await App.Current.MainPage.DisplayAlert(
-                    "Not logged in",
-                    "You need to be logged in to adopt a pet.\nDo you want to go to the login page?",
-                    "Yes",
-                    "No"
-                );
-
-                // Nếu người dùng chọn "Yes", điều hướng đến trang đăng nhập
-                if (shouldLogin)
-                {
-                    await GoToAsync($"//{nameof(LoginRegisterPage)}");
-                    return;
-                }
+                await ShowToastAsync("You need to be logged in to load your favorite pets okkokok");
+                return;
             }
             IsBusy = true;
             try

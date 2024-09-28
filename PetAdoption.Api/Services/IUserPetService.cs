@@ -8,5 +8,6 @@ namespace PetAdoption.Api.Services
         Task<ApiRespone<PetListDto[]>> GetUserAdoptionAsyns(int userId);
         Task<ApiRespone<PetListDto[]>> GetUserFavoritesAsyns(int userId);
         Task<ApiRespone> ToggleFavoritesAsync(int userId, int petId);
+
     }
 }

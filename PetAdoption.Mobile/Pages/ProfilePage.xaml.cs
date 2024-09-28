@@ -16,10 +16,10 @@ public partial class ProfilePage : ContentPage
         switch(optionText)
         {
             case "My Adoptions":
-                await _viewModel.ShowToastAsync("My Adoptions tapped");
+                await _viewModel.GoToAsync(nameof(AdoptionsPage));
                 break;
             case "Change Password":
-                await _viewModel.ShowToastAsync("Change password tapped");
+                await _viewModel.ChangePasswordCommand.ExecuteAsync(null);
                 break;
         }
     }

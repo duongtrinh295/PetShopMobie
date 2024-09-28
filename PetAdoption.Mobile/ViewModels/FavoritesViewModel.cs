@@ -9,31 +9,21 @@ namespace PetAdoption.Mobile.ViewModels
         private readonly IUserApi _userApi;
         private readonly AuthService _authService;
 
-        private ObservableCollection<PetSlim> _pets;
-        public ObservableCollection<PetSlim> Pets
-        {
-            get => _pets;
-            set
-            {
-                if (_pets != value)
-                {
-                    _pets = value;
-                    OnPropertyChanged(nameof(Pets)); // Đảm bảo giao diện được cập nhật khi danh sách thay đổi
-                }
-            }
-        }
+        [ObservableProperty]
+        public ObservableCollection<PetSlim> _pets = new();
 
         public FavoritesViewModel(IUserApi userApi, AuthService authService)
         {
             _userApi = userApi;
             _authService = authService;
-            Pets = new ObservableCollection<PetSlim>(); // Khởi tạo danh sách rỗng ban đầu
+            
         }
 
         public async Task InitializeAsync()
         {
             if (!_authService.IsLoggedIn)
             {
+                Pets.Clear();
                 await ShowToastAsync("You need to be logged in to load your favorite pets");
                 return;
             }

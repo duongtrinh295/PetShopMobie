@@ -13,15 +13,17 @@ namespace PetAdoption.Api.Controllers
     {
         private readonly IUserPetService _userPetService;
         private readonly IPetService _petService;
+        private readonly IAuthService _authService;
 
-        public UserController(IUserPetService userPetService, IPetService petService)
+        public UserController(IUserPetService userPetService, IPetService petService, IAuthService authService)
         {
             _userPetService = userPetService;
             _petService = petService;
+            _authService = authService;
         }
 
 
-        private int UserId = 8; /*Convert.ToInt32(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);*/
+        private int UserId => Convert.ToInt32(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
         // api/user/adopt/1
         [HttpPost("adopt/{petId:int}")]
@@ -48,6 +50,10 @@ namespace PetAdoption.Api.Controllers
         [HttpGet("view-pet-details/{petId:int}")]
         public async Task<ApiRespone<PetDetailDto>> GetPetDetailsAsync(int petId) =>
             await _petService.GetPetDetailsAsync(petId, UserId);
+
+        [HttpPost("change-password")]
+        public async Task<ApiRespone> ChangePassword(SingeValue<string> newPassword) =>
+            await _authService.ChangePasswordAsync(UserId, newPassword.Value);
 
     }
 }
