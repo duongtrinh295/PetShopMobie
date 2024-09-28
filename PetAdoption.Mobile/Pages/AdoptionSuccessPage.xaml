@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetAdoption.Mobile.Pages.AdoptionSuccessPage"
+
+             Title="Adoption">
+
+    <VerticalStackLayout 
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+         Spacing="25">
+        <Image x:Name="image"
+               Scale="0.1"
+            Source="Success"
+               HeightRequest="250"
+               WidthRequest="250"/>
+        <Label Text="Adoption Successful"
+               FontSize="30"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"/>
+        <Button Text="Explore more pets"
+                Style="{StaticResource btPrimary}"
+                Clicked="Button_Clicked"
+                />
+
+
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -23,16 +23,22 @@ namespace PetAdoption.Api.Services
                 .FirstOrDefaultAsync(p => p.UserId == userId && p.PetId == petId);
 
             if (userFavorite is not null)
+            {
+                // Nếu bản ghi đã tồn tại, xóa nó khỏi danh sách yêu thích
                 _context.UserFavorites.Remove(userFavorite);
+            }
             else
             {
-                userFavorite = new Data.Entities.UserFavorites
+                // Nếu không tồn tại, tạo mới bản ghi và thêm nó vào context
+                userFavorite = new UserFavorites
                 {
                     UserId = userId,
                     PetId = petId
                 };
+                _context.UserFavorites.Add(userFavorite); // Thêm vào context
             }
-            await _context.SaveChangesAsync();
+
+            await _context.SaveChangesAsync(); // Lưu thay đổi vào database
             return ApiRespone.Success();
         }
 
@@ -73,7 +79,11 @@ namespace PetAdoption.Api.Services
                      .FirstOrDefaultAsync(p => p.Id == petId);
 
                 if (pet is null)
-                    return ApiRespone.Fail($"{pet.Name} is already adoted.");
+                    return ApiRespone.Fail($"Pet with ID {petId} does not exist.");
+
+                // Kiểm tra trạng thái nhận nuôi của thú cưng
+                if (pet.AdoptionStatus == AdoptionStatus.Adopted)
+                    return ApiRespone.Fail($"{pet.Name} is already adopted.");
 
                 pet.AdoptionStatus = AdoptionStatus.Adopted;
 

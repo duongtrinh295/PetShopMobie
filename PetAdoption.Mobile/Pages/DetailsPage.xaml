@@ -112,9 +112,29 @@
 
         </Grid>
 
-        <Button Text="Adopt Now"
+        <Button Text="Adop Now"
                 Grid.Row="3"
-                Style="{StaticResource btPrimary}"/>
+                Style="{StaticResource btPrimary}"
+                Command="{Binding AdoptPetCommand}">
+            <Button.Triggers>
+                <!-- Trigger khi trạng thái là Adopted -->
+                <DataTrigger TargetType="Button"
+                 Binding="{Binding PetDetail.AdoptionStatus}"
+                 Value="Adopted">
+                    <Setter Property="Text" Value="Adopted"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+
+                <!-- Trigger khi trạng thái không phải là Adopted -->
+                <DataTrigger TargetType="Button"
+                 Binding="{Binding PetDetail.AdoptionStatus}"
+                 >
+                    <Setter Property="Text" Value="Adopt Now"/>
+                    <Setter Property="IsEnabled" Value="True"/>
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+                
         <ActivityIndicator
             Grid.Column="4"
             HorizontalOptions="Center"

@@ -20,8 +20,8 @@ namespace PetAdoption.Api.Controllers
             _petService = petService;
         }
 
-        
-        private int UserId => Convert.ToInt32(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);
+
+        private int UserId = 8; /*Convert.ToInt32(User.Claims.First(x => x.Type == ClaimTypes.NameIdentifier).Value);*/
 
         // api/user/adopt/1
         [HttpPost("adopt/{petId:int}")]
@@ -36,7 +36,7 @@ namespace PetAdoption.Api.Controllers
         // api/user/favorites
         [HttpGet("favorites")]
         public async Task<ApiRespone<PetListDto[]>> GetUserFavoritesAsyns() =>
-            await _userPetService.GetUserAdoptionAsyns(UserId);
+            await _userPetService.GetUserFavoritesAsyns(UserId);
 
         // api/user/favorites/1
         [HttpPost("favorites/{petId:int}")]

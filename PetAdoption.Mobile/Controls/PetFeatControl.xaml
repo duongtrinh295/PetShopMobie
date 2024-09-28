@@ -14,7 +14,9 @@
         <Border
           Grid.Row="2"
           Grid.Column="0"
-            VerticalOptions="Start"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            Margin="0, 0, 0, 0"
           Style="{StaticResource iconBtnContainer}"
           >
             <Image  Source="{Binding Icon}"/>

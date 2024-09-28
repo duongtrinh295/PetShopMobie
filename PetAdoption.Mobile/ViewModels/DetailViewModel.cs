@@ -1,4 +1,7 @@
-﻿namespace PetAdoption.Mobile.ViewModels
+﻿using PetAdoption.Shared.Enumerations;
+using Refit;
+
+namespace PetAdoption.Mobile.ViewModels
 {
     [QueryProperty(nameof(PetId), nameof(PetId))]
     public partial class DetailViewModel : BaseViewModel
@@ -88,6 +91,53 @@
                 //Revert
                 PetDetail.IsFavorite = !PetDetail.IsFavorite;
                 await ShowAlertAsync("Error in toggling favorite status", ex.Message);
+            }
+        }
+
+        [RelayCommand]
+
+        public async Task AdoptPetAsync()
+        {
+            if (!_authService.IsLoggedIn)
+            {
+                // Hiển thị hộp thoại xác nhận để đăng nhập
+                bool shouldLogin = await App.Current.MainPage.DisplayAlert(
+                    "Not logged in",
+                    "You need to be logged in to adopt a pet.\nDo you want to go to the login page?",
+                    "Yes",
+                    "No"
+                );
+
+                // Nếu người dùng chọn "Yes", điều hướng đến trang đăng nhập
+                if (shouldLogin)
+                {
+                    await GoToAsync($"//{nameof(LoginRegisterPage)}");
+                    return;
+                }
+            }
+            IsBusy = true;
+            try
+            {
+                var apiResponse = await _userApi.AdoptPetAsyns(PetId);
+                if (apiResponse.IsSuccess)
+                {
+                    // Cập nhật trạng thái nhận nuôi
+                    PetDetail.AdoptionStatus = AdoptionStatus.Adopted;
+                    await GoToAsync(nameof(AdoptionSuccessPage));
+                }
+                else
+                {
+                    await ShowAlertAsync("Error in adoption", apiResponse.Message);
+                }
+                IsBusy = false;
+            }
+            catch (Exception ex)
+            {
+                await ShowAlertAsync("Error in adoption", ex.Message);
+            }
+            finally
+            {
+                IsBusy = false; // Đảm bảo cờ IsBusy được đặt lại, dù có lỗi hay không
             }
         }
     }

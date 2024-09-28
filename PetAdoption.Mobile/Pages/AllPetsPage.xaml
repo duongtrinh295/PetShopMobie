@@ -64,9 +64,7 @@
                                                      Opacity="0.3"/>
 
                                     <VerticalStackLayout.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:AllPetsViewModel}}, Path=GotoDetailsPageCommand}"
-                                                              CommandParameter="{Binding Id}"/>
-                                        
+                                        <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type vm:AllPetsViewModel}}, Path=GotoDetailsPageCommand}" CommandParameter="{Binding Id}"/>
                                     </VerticalStackLayout.GestureRecognizers>
                                 </VerticalStackLayout>
                             </DataTemplate>

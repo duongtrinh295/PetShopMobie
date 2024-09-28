@@ -6,7 +6,7 @@ namespace PetAdoption.Mobile.Services
     public interface IUserApi
     {
         [Post("/api/user/adopt/{petId}")]
-        Task<ApiRespone> AdotPetAsyns(int petId);
+        Task<ApiRespone> AdoptPetAsyns(int petId);
 
         [Get("/api/user/adoptions")]
         Task<ApiRespone<PetListDto[]>> GetUserAdoptionAsyns();

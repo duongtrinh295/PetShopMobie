@@ -224,6 +224,7 @@
 	  <None Remove="Resources\Images\list.svg" />
 	  <None Remove="Resources\Images\pet_com.svg" />
 	  <None Remove="Resources\Images\right_arrow.svg" />
+	  <None Remove="Resources\Images\success.jpg" />
 	  <None Remove="Resources\Images\user.svg" />
 	</ItemGroup>
 
@@ -256,6 +257,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\AdoptionsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\AdoptionSuccessPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\AllPetsPage.xaml">

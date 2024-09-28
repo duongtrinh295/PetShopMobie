@@ -42,6 +42,9 @@ namespace PetAdoption.Mobile
             services.AddSingleton<ProfileViewModel>()
                 .AddSingleton<ProfilePage>();
 
+            services.AddSingleton<FavoritesViewModel>()
+              .AddSingleton<FavoritesPage>();
+
         }
 
         static void ConfigureRefit(IServiceCollection services)
