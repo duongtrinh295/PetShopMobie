@@ -10,7 +10,7 @@
              Shell.PresentationMode="ModalAnimated"
              BackgroundColor="{StaticResource BgColor}"
              xmlns:controls="clr-namespace:PetAdoption.Mobile.Controls"
-             Title="DetailsPage">
+             Title="Details Pet">
     <Grid
                 Background="White"
         RowDefinitions="Auto, *, *, Auto"

@@ -36,8 +36,8 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
+		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#FFFFFF" />
-		<MauiIcon Include="Resources\AppIcon\appiconfg.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFFFFF" BaseSize="128,128" />
@@ -178,7 +178,6 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
-	  <None Remove="Resources\AppIcon\appiconfg.svg" />
 	  <None Remove="Resources\Fonts\Ubuntu-Bold.ttf" />
 	  <None Remove="Resources\Fonts\Ubuntu-Regular.ttf" />
 	  <None Remove="Resources\Images\calendar_svgrepo_com.svg" />
@@ -238,12 +237,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiAsset Include="Resources\Splash\appiconfg.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <MauiIcon Include="Resources\AppIcon\appicon.svg" />
-	  <MauiIcon Include="Resources\Splash\appiconfg.svg" />
+	  <MauiIcon Include="Resources\Raw\appiconfg.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

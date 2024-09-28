@@ -7,7 +7,7 @@
              x:Class="PetAdoption.Mobile.Pages.HomePage"
              x:DataType="vm:HomeViewModel"
              Shell.NavBarIsVisible="False"
-             Title="HomePage">
+             Title="Home">
     <ContentPage.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="petsHorizontalListTemplate" x:DataType="dtos:PetListDto">

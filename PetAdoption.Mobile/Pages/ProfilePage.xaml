@@ -8,7 +8,7 @@
             xmlns:dtos="clr-namespace:PetAdoption.Shared.Dtos;assembly=PetAdoption.Shared"
             xmlns:controls="clr-namespace:PetAdoption.Mobile.Controls"
              x:DataType="vm:ProfileViewModel"
-             Title="ProfilePage"
+             Title="Profile"
              Padding="15, 25">
     <Grid RowDefinitions="Auto, *, Auto"
           RowSpacing="15">
